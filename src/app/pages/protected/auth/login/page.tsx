@@ -12,7 +12,7 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
-  //const { data: session, update } = useSession();
+  const { data: session, update } = useSession();
   const route = useRouter();
 
   const onSubmit = async (e: React.FormEvent) => {
