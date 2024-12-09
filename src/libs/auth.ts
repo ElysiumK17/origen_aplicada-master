@@ -1,21 +1,22 @@
-import NextAuth from "next-auth"
-import { PrismaAdapter } from "@auth/prisma-adapter"
+import NextAuth from "next-auth";
+import { PrismaAdapter } from "@auth/prisma-adapter";
 // auth.config imporrt object
-import authConfig from "@/libs/auth.config"
-import{db} from "@/libs/db"
- 
+import authConfig from "@/libs/auth.config";
+import { db } from "@/libs/db";
+
 export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: PrismaAdapter(db),
-  session: {strategy: "jwt",},
+  session: { strategy: "jwt" },
+  providers: [], // Add your providers here
   ...authConfig,
   callbacks: {
     async jwt({ token, user, trigger, session }) {
       if (user) {
-        token.role = user.role;  // Asigna el rol al token
+        token.role = user.role; // Asigna el rol al token
       }
 
       if (trigger === "update") {
-        token.role = session.user.role;  // Cambiar el rol en la sesión.
+        token.role = session.user.role; // Cambiar el rol en la sesión.
       }
 
       return token;
@@ -26,5 +27,5 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       }
       return session;
     },
-  }
-})
+  },
+});
