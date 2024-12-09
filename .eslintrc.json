@@ -1,0 +1,21 @@
+{
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "rules": {
+    "@typescript-eslint/no-empty-interface": "off", // Permitir interfaces vacías
+  
+    "@typescript-eslint/no-empty-object-type": "off",
+  
+    "no-console": "off", // Cambiar los errores de console.log a advertencias
+    "@typescript-eslint/no-unused-vars": "off", // Desactivar revisión de variables no usadas
+    "@typescript-eslint/no-explicit-any": "off", // Permitir el uso de any
+    "@typescript-eslint/no-require-imports": "off",
+    "react-hooks/exhaustive-deps": "off", // Desactivar advertencias de dependencias de hooks
+    "@next/next/no-img-element": "off" // Permitir el uso de <img> en lugar de <Image>
+  },
+  "ignorePatterns": [
+    "node_modules/",
+    "dist/",
+    "out/",
+    "build/"
+  ]
+}
