@@ -24,7 +24,7 @@ const LoginForm = () => {
       const response = await loginAction(values);
 
       if (response.success) {
-        route.push("/page/protected/Dashboard/patient");
+        route.push("/pages/protected/Dashboard/patient");
       } else if (response.error) {
         setError(response.error);
       } else {
@@ -46,7 +46,7 @@ const LoginForm = () => {
           className="hidden md:block bg-cover bg-center"
           style={{ backgroundImage: "url('/imageClinic/Foto4.png')" }}
         ></div>
-  
+
         {/* Formulario */}
         <div className="flex items-center justify-center p-12">
           <div className="w-full max-w-md">
@@ -72,7 +72,10 @@ const LoginForm = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <Button type="submit" className="w-full bg-custom-realBlue rounded-lg py-3 text-lg">
+              <Button
+                type="submit"
+                className="w-full bg-custom-realBlue rounded-lg py-3 text-lg"
+              >
                 Iniciar Sesión
               </Button>
             </form>
@@ -91,7 +94,7 @@ const LoginForm = () => {
         </div>
       </div>
     </div>
-  );  
+  );
 };
 
 // Componente reutilizable para los campos de entrada
